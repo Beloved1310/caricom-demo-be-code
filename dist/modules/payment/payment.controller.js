@@ -22,7 +22,7 @@ exports.paymentController = {
     },
     verifyOTP(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const verifyPayload = yield payment_service_1.paymentService.verifyOtp(req.body.phoneNumber, req.body.code);
+            const verifyPayload = yield payment_service_1.paymentService.verifyOtp(req.body.phoneNumber, req.body.otp);
             return verifyPayload;
         });
     },

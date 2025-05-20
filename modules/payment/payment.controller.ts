@@ -11,7 +11,7 @@ export const paymentController = {
   },
 
   async verifyOTP(req: Request, res: Response): Promise<{}> {
-   const verifyPayload =  await paymentService.verifyOtp(req.body.phoneNumber, req.body.code);
+   const verifyPayload =  await paymentService.verifyOtp(req.body.phoneNumber, req.body.otp);
     return verifyPayload
   },
 

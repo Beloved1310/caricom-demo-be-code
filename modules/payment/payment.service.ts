@@ -16,9 +16,9 @@ export const paymentService = {
     return verification
   },
 
-  async verifyOtp(phoneNumber:string, code:string) {
+  async verifyOtp(phoneNumber:string, otp:string) {
    
-   const verifyPayload = await checkVerification(`${phoneNumber}`, `${code}`)
+   const verifyPayload = await checkVerification(`${phoneNumber}`, `${otp}`)
   
     return verifyPayload
   },

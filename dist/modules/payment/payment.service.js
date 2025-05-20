@@ -27,9 +27,9 @@ exports.paymentService = {
             return verification;
         });
     },
-    verifyOtp(phoneNumber, code) {
+    verifyOtp(phoneNumber, otp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const verifyPayload = yield (0, otp_service_1.checkVerification)(`${phoneNumber}`, `${code}`);
+            const verifyPayload = yield (0, otp_service_1.checkVerification)(`${phoneNumber}`, `${otp}`);
             return verifyPayload;
         });
     },
