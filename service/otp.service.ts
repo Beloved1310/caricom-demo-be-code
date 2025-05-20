@@ -3,11 +3,11 @@ import twilio from 'twilio'
 import axios from 'axios';
 import { config } from 'dotenv'
 
-
 config()
 interface VerificationResult {
   status: any
 }
+
 interface TwilioClient {
   verify: {
     v2: {
@@ -69,7 +69,6 @@ async function checkVerification(to: string, code: string): Promise<{}> {
     throw error
   }
 }
-
 
 
 export { initiateVerification, checkVerification }
