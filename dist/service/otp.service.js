@@ -14,7 +14,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.initiateVerification = initiateVerification;
 exports.checkVerification = checkVerification;
-exports.sendText = sendText;
 // twilioVerify.ts
 const twilio_1 = __importDefault(require("twilio"));
 const dotenv_1 = require("dotenv");
@@ -50,23 +49,6 @@ function checkVerification(to, code) {
         }
         catch (error) {
             console.error(`Error checking verification: ${error.message}`);
-            throw error;
-        }
-    });
-}
-function sendText(to, randomCode) {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            // Send text message
-            const message = yield client.messages.create({
-                body: `Your OTP code is: ${randomCode}`,
-                from: '+19123488158', // Your Twilio phone number
-                to: to,
-            });
-            return message.sid;
-        }
-        catch (error) {
-            console.error(`Error sending text message: ${error.message}`);
             throw error;
         }
     });

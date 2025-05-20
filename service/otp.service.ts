@@ -8,7 +8,6 @@ config()
 interface VerificationResult {
   status: any
 }
-
 interface TwilioClient {
   verify: {
     v2: {
@@ -71,22 +70,6 @@ async function checkVerification(to: string, code: string): Promise<{}> {
   }
 }
 
-async function sendText(to: string, randomCode: string): Promise<string> {
-  try {
-    // Send text message
-    const message = await client.messages.create({
-      body: `Your OTP code is: ${randomCode}`,
-      from: '+19123488158', // Your Twilio phone number
-      to: to,
-    })
-
-    return message.sid
-  } catch (error : any) {
-    console.error(`Error sending text message: ${error.message}`)
-    throw error
-  }
-}
 
 
-
-export { initiateVerification, checkVerification, sendText }
+export { initiateVerification, checkVerification }
