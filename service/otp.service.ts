@@ -7,6 +7,19 @@ interface VerificationResult {
   status: any
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 interface TwilioClient {
   verify: {
     v2: {
