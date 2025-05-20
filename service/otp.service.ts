@@ -11,15 +11,6 @@ interface VerificationResult {
 
 
 
-
-
-
-
-
-
-
-
-
 interface TwilioClient {
   verify: {
     v2: {
