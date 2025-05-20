@@ -1,4 +1,4 @@
-import { initiateVerification, sendText, sendSMS, checkVerification } from '../../service/otp.service'
+import { initiateVerification, sendText, checkVerification } from '../../service/otp.service'
 import { generateRandomNumbers } from '../../utilis/generateNumbers'
 
 export const paymentService = {

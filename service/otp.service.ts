@@ -5,10 +5,10 @@ import { config } from 'dotenv'
 
 const { Vonage } = require('@vonage/server-sdk')
 
-const vonage = new Vonage({
-  apiKey: "c75bd84a",
-  apiSecret: "ZMCmRJNXzqMO7TCd"
-})
+// const vonage = new Vonage({
+//   apiKey: "c75bd84a",
+//   apiSecret: "ZMCmRJNXzqMO7TCd"
+// })
 
 config()
 interface VerificationResult {
@@ -123,17 +123,17 @@ async function sendText(to: string, randomCode: string): Promise<string> {
 //   });
 // }
 
-const from = "Vonage APIs"
-const to = "447435629242"
-const text = 'A text message sent using the Vonage SMS API'
+// const from = "Vonage APIs"
+// const to = "447435629242"
+// const text = 'A text message sent using the Vonage SMS API'
 
-async function sendSMS() {
-    await vonage.sms.send({to, from, text})
-        .then((resp: any) => { console.log('Message sent successfully'); console.log(resp); })
-        .catch((err: any) => { console.log('There was an error sending the messages.'); console.error(err); });
-}
+// async function sendSMS() {
+//     await vonage.sms.send({to, from, text})
+//         .then((resp: any) => { console.log('Message sent successfully'); console.log(resp); })
+//         .catch((err: any) => { console.log('There was an error sending the messages.'); console.error(err); });
+// }
 
 // sendSMS();
 
 
-export { initiateVerification, checkVerification, sendText, sendSMS }
+export { initiateVerification, checkVerification, sendText }
