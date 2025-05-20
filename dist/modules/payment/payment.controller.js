@@ -15,15 +15,18 @@ exports.paymentController = {
     sendOTP(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield payment_service_1.paymentService.SendOtp(req.body.phoneNumber);
-            return {
+            res.send({
                 phoneNumber: req.body.phoneNumber
-            };
+            });
         });
     },
     verifyOTP(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const verifyPayload = yield payment_service_1.paymentService.verifyOtp(req.body.phoneNumber, req.body.otp);
-            return verifyPayload;
+            const verifyStatus = yield payment_service_1.paymentService.verifyOtp(req.body.phoneNumber, req.body.otp);
+            res.send({
+                phoneNumber: req.body.phoneNumber,
+                status: verifyStatus
+            });
         });
     },
     //   async verifyToken(req: Request, res: Response): Promise<{}> {

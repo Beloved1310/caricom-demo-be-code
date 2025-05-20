@@ -60,13 +60,13 @@ async function initiateVerification(
   }
 }
 
-async function checkVerification(to: string, code: string): Promise<{}> {
+async function checkVerification(to: string, code: string): Promise<string> {
   try {
     const verificationCheck = await client.verify.v2
       .services(TWILIO_VERIFY_SID)
       .verificationChecks.create({ to, code })
       console.log(verificationCheck, "QQ")
-    return verificationCheck
+    return verificationCheck.status
   } catch (error : any) {
     console.error(`Error checking verification: ${error.message}`)
     throw error

@@ -45,7 +45,7 @@ function checkVerification(to, code) {
                 .services(TWILIO_VERIFY_SID)
                 .verificationChecks.create({ to, code });
             console.log(verificationCheck, "QQ");
-            return verificationCheck;
+            return verificationCheck.status;
         }
         catch (error) {
             console.error(`Error checking verification: ${error.message}`);

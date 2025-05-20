@@ -3,16 +3,19 @@ import { paymentService } from "./payment.service";
 
 
 export const paymentController = {
-  async sendOTP(req: Request, res: Response): Promise<{}> {
+  async sendOTP(req: Request, res: Response): Promise<any> {
     await paymentService.SendOtp(req.body.phoneNumber);
-    return {
+    res.send( {
       phoneNumber:req.body.phoneNumber
-    }
+    })
   },
 
-  async verifyOTP(req: Request, res: Response): Promise<{}> {
-   const verifyPayload =  await paymentService.verifyOtp(req.body.phoneNumber, req.body.otp);
-    return verifyPayload
+  async verifyOTP(req: Request, res: Response): Promise<any> {
+   const verifyStatus =  await paymentService.verifyOtp(req.body.phoneNumber, req.body.otp);
+   res.send( {
+    phoneNumber:req.body.phoneNumber,
+    status: verifyStatus
+  })
   },
 
 //   async verifyToken(req: Request, res: Response): Promise<{}> {
