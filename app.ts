@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from "express";
 import path from "path";
 import payment from "./modules/payment/index";
+import cors from 'cors'
 
 
 declare global {
@@ -14,7 +15,7 @@ declare global {
 
 const app: Application = express();
 
-
+app.use(cors({ origin: '*' }))
 app.use(express.urlencoded({ extended: true, limit: 52428800 }));
 app.use(express.json({ limit: 52428800 }));
 app.use("/upload", express.static(path.join(__dirname, "uploads")));
