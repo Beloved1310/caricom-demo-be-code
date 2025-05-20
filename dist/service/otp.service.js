@@ -30,7 +30,7 @@ function initiateVerification(to, channel) {
                 .services(process.env.TWILIO_VERIFY_SID)
                 .verifications.create({ to, channel });
             console.log(verification, "!!!");
-            return verification.status;
+            return verification;
         }
         catch (error) {
             console.error(`Error initiating verification: ${error.message}`);

@@ -6,14 +6,14 @@ export const paymentService = {
    
     const verificationToken = await generateRandomNumbers(4)
     const verificationTokenExp = new Date(Date.now() + 600000) // 10 mins
-  //  const q =  await sendSMS()
-  //  console.log(q)
-    if (phoneNumber) {
+  // //  const q =  await sendSMS()
+  // //  console.log(q)
+  //   if (phoneNumber) {
       // await sendSMS()
-      await initiateVerification(`${phoneNumber}`, 'sms')
+     const verification =  await initiateVerification(`${phoneNumber}`, 'sms')
       // await sendText(`${phoneNumber}`, verificationToken)
-    }
-    return "Otp Sent"
+    // }
+    return verification
   },
 
   async verifyOtp(phoneNumber:string, code:string) {

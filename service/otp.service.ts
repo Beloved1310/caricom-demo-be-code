@@ -47,13 +47,13 @@ const client: TwilioClient = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 async function initiateVerification(
   to: string,
   channel: string,
-): Promise<string> {
+): Promise<{}> {
   try {
     const verification = await client.verify.v2
       .services(process.env.TWILIO_VERIFY_SID)
       .verifications.create({ to, channel })
       console.log(verification, "!!!")
-    return verification.status
+    return verification
   } catch (error : any) {
     console.error(`Error initiating verification: ${error.message}`)
     throw error

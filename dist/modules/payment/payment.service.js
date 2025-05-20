@@ -17,14 +17,14 @@ exports.paymentService = {
         return __awaiter(this, void 0, void 0, function* () {
             const verificationToken = yield (0, generateNumbers_1.generateRandomNumbers)(4);
             const verificationTokenExp = new Date(Date.now() + 600000); // 10 mins
-            //  const q =  await sendSMS()
-            //  console.log(q)
-            if (phoneNumber) {
-                // await sendSMS()
-                yield (0, otp_service_1.initiateVerification)(`${phoneNumber}`, 'sms');
-                // await sendText(`${phoneNumber}`, verificationToken)
-            }
-            return "Otp Sent";
+            // //  const q =  await sendSMS()
+            // //  console.log(q)
+            //   if (phoneNumber) {
+            // await sendSMS()
+            const verification = yield (0, otp_service_1.initiateVerification)(`${phoneNumber}`, 'sms');
+            // await sendText(`${phoneNumber}`, verificationToken)
+            // }
+            return verification;
         });
     },
     verifyOtp(phoneNumber, code) {
