@@ -15,15 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.initiateVerification = initiateVerification;
 exports.checkVerification = checkVerification;
 exports.sendText = sendText;
-exports.sendSMS = sendSMS;
 // twilioVerify.ts
 const twilio_1 = __importDefault(require("twilio"));
 const dotenv_1 = require("dotenv");
-const { Vonage } = require('@vonage/server-sdk');
-const vonage = new Vonage({
-    apiKey: "c75bd84a",
-    apiSecret: "ZMCmRJNXzqMO7TCd"
-});
 (0, dotenv_1.config)();
 const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_VERIFY_SID } = process.env;
 if (!TWILIO_ACCOUNT_SID || !TWILIO_AUTH_TOKEN || !TWILIO_VERIFY_SID) {
@@ -75,29 +69,5 @@ function sendText(to, randomCode) {
             console.error(`Error sending text message: ${error.message}`);
             throw error;
         }
-    });
-}
-// const apiKey = process.env.VONAGE_API_KEY;
-// const apiSecret = process.env.VONAGE_SECRET_KEY;
-// const from = 'Vonage APIs';
-// const to = '447435629242';
-// const text = 'Your verification code is 123456';
-// async function sendSMS() {
-//   await axios.post('https://rest.nexmo.com/sms/json', {
-//     api_key: apiKey,
-//     api_secret: apiSecret,
-//     to,
-//     from,
-//     text,
-//   });
-// }
-const from = "Vonage APIs";
-const to = "447435629242";
-const text = 'A text message sent using the Vonage SMS API';
-function sendSMS() {
-    return __awaiter(this, void 0, void 0, function* () {
-        yield vonage.sms.send({ to, from, text })
-            .then((resp) => { console.log('Message sent successfully'); console.log(resp); })
-            .catch((err) => { console.log('There was an error sending the messages.'); console.error(err); });
     });
 }

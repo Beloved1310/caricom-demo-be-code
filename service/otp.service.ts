@@ -3,30 +3,12 @@ import twilio from 'twilio'
 import axios from 'axios';
 import { config } from 'dotenv'
 
-const { Vonage } = require('@vonage/server-sdk')
-
-// const vonage = new Vonage({
-//   apiKey: "c75bd84a",
-//   apiSecret: "ZMCmRJNXzqMO7TCd"
-// })
 
 config()
 interface VerificationResult {
   status: any
 }
 
-// const accountSid = 'AC8bd88f02c714065f775b839afcc9a702';
-// const authToken = '[AuthToken]';
-// const client = require('twilio')(accountSid, authToken);
-
-// client.messages
-//     .create({
-//         body: 'hi',
-//         from: '+19123488158',
-//         to: '+2348160750829'
-//     })
-//     .then(message => console.log(message.sid))
-//     .done();
 interface TwilioClient {
   verify: {
     v2: {
@@ -105,35 +87,6 @@ async function sendText(to: string, randomCode: string): Promise<string> {
   }
 }
 
-
-
-// const apiKey = process.env.VONAGE_API_KEY;
-// const apiSecret = process.env.VONAGE_SECRET_KEY;
-// const from = 'Vonage APIs';
-// const to = '447435629242';
-// const text = 'Your verification code is 123456';
-
-// async function sendSMS() {
-//   await axios.post('https://rest.nexmo.com/sms/json', {
-//     api_key: apiKey,
-//     api_secret: apiSecret,
-//     to,
-//     from,
-//     text,
-//   });
-// }
-
-// const from = "Vonage APIs"
-// const to = "447435629242"
-// const text = 'A text message sent using the Vonage SMS API'
-
-// async function sendSMS() {
-//     await vonage.sms.send({to, from, text})
-//         .then((resp: any) => { console.log('Message sent successfully'); console.log(resp); })
-//         .catch((err: any) => { console.log('There was an error sending the messages.'); console.error(err); });
-// }
-
-// sendSMS();
 
 
 export { initiateVerification, checkVerification, sendText }
